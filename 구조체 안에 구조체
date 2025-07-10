@@ -1,0 +1,21 @@
+#include <stdio.h>
+struct employee
+{
+int age;
+int salary;
+};
+struct company
+{
+struct employee data;
+char name[10];
+};
+
+int main(void)
+{
+struct company kim;
+kim.data.age = 31;
+kim.data.salary = 3000000;
+printf("Kim's age : %d \n", kim.data.age);
+printf("Kim's salary : %d$/year \n", kim.data.salary);
+return 0;
+}
