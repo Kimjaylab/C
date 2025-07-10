@@ -1,0 +1,20 @@
+#include <stdio.h>
+struct human
+{
+int age;
+int height;
+int weight;
+}; // ; 붙이는 것 주의
+
+int main(void)
+{
+struct human gildong;
+gildong.age = 99;
+gildong.height = 185;
+gildong.weight = 80;
+printf("GilDong에 대한 정보 \n");
+printf("나이 : %d \n", gildong.age);
+printf("키 : %d \n", gildong.height);
+printf("몸무게 : %d \n", gildong.weight);
+return 0;
+}
