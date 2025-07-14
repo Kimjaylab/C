@@ -1,16 +1,25 @@
-#include <stdio.h>
-int main(void)
+#include <stdio.h> 
+
+int main(void) 
 {
-int arr[2][3] = { 10, 20, 30, 40, 50, 60 };
-int (*pArr)[3]; //배열 포인터의 선언
-pArr = arr; //배열 포인터 초기화
-for (int i = 0; i < 2; i++)
-{
-for (int j = 0; j < 3; j++)
-{
-printf("%d ", *((*pArr + i*3) + j)); //배열 포인터로 참조
+    int arr[2][3] = { 10, 20, 30, 40, 50, 60 }; // 2행 3열짜리 2차원 배열 초기화
+    int (*pArr)[3]; // 3개의 int를 가지는 포인터 변수 선언 
+
+    pArr = arr; // 배열 이름은 첫 번째 행의 주소이므로 pArr에 arr의 첫 번째 행 주소 대입
+
+    for (int i = 0; i < 2; i++) // 총 2행을 반복하는 반복문
+    {
+        for (int j = 0; j < 3; j++) // 각 행에 3열을 반복하는 반복문
+        {
+            
+            printf("%d ", *((*pArr + i*3) + j)); // 배열 포인터를 통해 값에 접근
+            // (*pArr + i*3)은 i행의 시작 주소를 가리킴 (단일 배열처럼 접근)
+            // + j는 i행의 j번째 열로 이동
+            // 결국 *((*pArr + i*3) + j)는 arr[i][j]와 동일
+        }
+        printf("\n"); // 각 행 출력 후 줄바꿈
+    }
+
+    return 0; 
 }
-printf("\n");
-}
-return 0;
-}
+
