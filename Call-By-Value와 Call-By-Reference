@@ -1,19 +1,26 @@
-#include <stdio.h>
-void swap(int *a, int *b);
-int main(void)
+#include <stdio.h> 
+
+void swap(int *a, int *b); // 두 정수의 값을 교환하는 함수 선언
+
+int main(void) 
 {
-int i, j;
-i = 3;
-j = 5;
-printf("SWAP 이전 : i : %d, j : %d \n", i, j);
-swap(&i, &j);
-printf("SWAP 이후 : i : %d, j : %d \n", i, j);
-return 0;
+    int i, j; // 정수형 변수 i, j 선언
+    i = 3;    // i에 3 대입
+    j = 5;    // j에 5 대입
+
+    printf("SWAP 이전 : i : %d, j : %d \n", i, j); // 교환 전 i와 j 값 출력
+
+    swap(&i, &j); // i와 j의 주소를 인수로 전달하여 값 교환
+
+    printf("SWAP 이후 : i : %d, j : %d \n", i, j); // 교환 후 i와 j 값 출력
+
+    return 0; 
 }
 
-void swap(int *a, int *b)
+void swap(int *a, int *b) // 두 정수 포인터를 받아 값을 교환하는 함수 정의
 {
-int temp = *a;
-*a = *b;
-*b = temp;
+    int temp = *a; // *a는 a가 가리키는 변수(i)의 값. 그것을 temp에 저장
+    *a = *b;       // b가 가리키는 변수(j)의 값을 a가 가리키는 위치에 대입
+    *b = temp;     // temp에 저장해 둔 원래 a의 값을 b가 가리키는 위치에 대입
 }
+
