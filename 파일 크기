@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main(void)
+{
+int size = 0;
+FILE *fp = fopen(“sample.txt", "r");
+while(fgetc(fp) != EOF)
+size++;
+printf("이 파일의 크기는 : %d bytes \n", size);
+fclose(fp);
+return 0;
+}
