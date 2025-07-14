@@ -1,22 +1,30 @@
-#include <stdio.h>
-void add_one(int *a);
+#include <stdio.h> 
+
+void add_one(int *a); // 정수를 1 증가시키는 함수 선언
+
 struct TEST
 {
-int c;
+    int c; // 정수형 멤버 c
 };
+
 int main(void)
 {
-struct TEST t;
-struct TEST *pt = &t;
-pt->c = 0;
-add_one(&t.c);
-printf("t.c : %d \n", t.c);
-add_one(&(pt->c));
-printf("t.c : %d \n", t.c);
-return 0;
+    struct TEST t; // 구조체 변수 t 선언
+    struct TEST *pt = &t; // 구조체 포인터 pt 선언 및 t의 주소 저장
+
+    pt->c = 0; // 포인터를 이용하여 t.c 값을 0으로 초기화 
+
+    add_one(&t.c); // t.c의 주소를 인수로 전달하여 값 1 증가
+    printf("t.c : %d \n", t.c); // 결과 출력 → 1
+
+    add_one(&(pt->c)); // 구조체 포인터 pt를 이용해 t.c의 주소를 전달하여 다시 1 증가
+    printf("t.c : %d \n", t.c); // 결과 출력 → 2
+
+    return 0; // 프로그램 정상 종료
 }
 
-void add_one(int *a)
+void add_one(int *a) // 포인터로 전달된 정수 값을 1 증가시키는 함수 정의
 {
-*a += 1;
+    *a += 1; // 포인터 a가 가리키는 값을 1 증가
 }
+
