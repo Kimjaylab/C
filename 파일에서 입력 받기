@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main(void)
+{
+char buf[20]; //내용을 입력 받을 곳
+FILE *fp = fopen(“sample.txt", "r");
+if (fp == NULL)
+{
+printf("READ ERROR !! \n");
+return 0;
+}
+fgets(buf, 20, fp);
+printf("입력 받은 내용 : %s \n", buf);
+fclose(fp);
+return 0;
+}
