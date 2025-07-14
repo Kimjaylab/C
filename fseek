@@ -1,17 +1,23 @@
-#include <stdio.h>
-int main(void)
+#include <stdio.h> 
+
+int main(void) 
 {
-FILE *fp;
-fp = fopen(“sample.txt”, “wt”);
-fputs(“ABCDEFGHIJKLMNOPQRSTUVWXYZ”, fp);
-fclose(fp);
-fp = fopen(“sample.txt”, “rt”);
-fseek(fp, 3, SEEK_SET);
-printf(“fseek(fp, 3, SEEK_SET) = %c \n”, fgetc(fp));
-fseek(fp,
--1, SEEK_END);
-printf(“fseek(fp,
--1, SEEK_END) = %c \n”, fgetc(fp));
-fclose(fp);
-return 0;
+    FILE *fp; // 파일 포인터 선언
+
+    fp = fopen("sample.txt", "wt"); // "sample.txt" 파일을 텍스트 쓰기 모드로 열기 (기존 내용은 지워짐)
+    fputs("ABCDEFGHIJKLMNOPQRSTUVWXYZ", fp); // 파일에 알파벳 A~Z 문자열 쓰기
+    fclose(fp); // 파일 닫기 (쓰기 완료)
+
+    fp = fopen("sample.txt", "rt"); // 같은 파일을 텍스트 읽기 모드로 다시 열기
+
+    fseek(fp, 3, SEEK_SET); // 파일 포인터를 파일의 시작(SEEK_SET)으로부터 3바이트 앞으로 이동 (4번째 문자 위치)
+    printf("fseek(fp, 3, SEEK_SET) = %c \n", fgetc(fp)); // 현재 위치의 문자 출력 (D)
+
+    fseek(fp, -1, SEEK_END); // 파일의 끝(SEEK_END)에서 -1 바이트(마지막 문자 위치)로 포인터 이동
+    printf("fseek(fp, -1, SEEK_END) = %c \n", fgetc(fp)); // 마지막 문자 출력 (Z)
+
+    fclose(fp); // 파일 닫기
+
+    return 0; // 프로그램 정상 종료
 }
+
