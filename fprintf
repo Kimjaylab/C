@@ -1,18 +1,23 @@
-#include <stdio.h>
-int main(void)
+#include <stdio.h> 
+
+int main(void) 
 {
-FILE *fp;
-int number = 20;
-double grade = 4.3;
-char name[ ] = “홍길동”;
-fp = fopen(“sample.txt”, “w”);
-if(fp == NULL) {
-printf(“파일 열기 실패\n”);
-return 0;
-}
-fprintf( fp, “%s \n”, name);
-fprintf( fp, “%d \n”, number);
-fprintf( fp, “%f \n”, grade);
-fclose(fp);
-return 0;
+    FILE *fp; // 파일 포인터 변수 선언
+    int number = 20; // 정수 변수 number 초기화
+    double grade = 4.3; // 실수형 변수 grade 초기화
+    char name[] = "홍길동"; // 문자열 배열 name에 "홍길동" 저장
+
+    fp = fopen("sample.txt", "w"); // sample.txt 파일을 쓰기 모드("w")로 열기. 파일이 없으면 새로 생성됨
+    if(fp == NULL) { // 파일 열기에 실패했을 경우
+        printf("파일 열기 실패\n"); // 오류 메시지 출력
+        return 0; // 프로그램 종료
+    }
+
+    fprintf(fp, "%s \n", name); // name 문자열을 파일에 출력
+    fprintf(fp, "%d \n", number); // 정수 number를 파일에 출력
+    fprintf(fp, "%f \n", grade); // 실수 grade를 파일에 출력
+
+    fclose(fp); // 파일 닫기
+
+    return 0; // 프로그램 정상 종료
 }
