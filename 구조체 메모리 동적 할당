@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct something {
+int a;
+int b;
+};
+int main(void)
+{
+struct something *arr;
+int size, i;
+printf("구조체 배열 크기 : ");
+scanf("%d", &size);
+
+arr = (struct something *)malloc(sizeof(struct something) * size);
+for (i=0; i<size; i++)
+{
+printf("arr[%d].a : ", i);
+scanf("%d", &arr[i].a);
+printf("arr[%d].b : ", i);
+scanf("%d", &arr[i].b);
+}
+for (i=0; i<size;i++)
+printf("arr[%d].a : %d , arr[%d].b : %d \n", i, arr[i].a, i, arr[i].b);
+free(arr);
+return 0;
+}
