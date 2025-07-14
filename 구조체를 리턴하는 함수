@@ -1,0 +1,22 @@
+#include <stdio.h>
+struct AA
+{
+int age;
+int gender;
+};
+struct AA function(int a, int g);
+int main(void)
+{
+struct AA a;
+a = function(10, 1);
+printf("age : %d gender : %d \n", a.age, a.gender);
+return 0;
+}
+
+struct AA function(int a, int g)
+{
+struct AA A;
+A.age = a;
+A.gender = g;
+return A;
+}
