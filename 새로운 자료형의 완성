@@ -1,0 +1,18 @@
+#include <stdio.h>
+int add(int a, int b)
+{
+return a+b;
+}
+typedef int INT; //INT로 별칭 정의
+typedef int (*padd)(int, int); //padd를 함수 포인터 별칭으로 정의. int는 반환되는 자료형
+typedef int Arrays[10]; //크기가 10개인 정수형 배열 별칭 정의
+int main(void)
+{
+INT a = 10;
+Arrays arr = {1,2,3,4,5,6,7,8,9,0};
+padd ptr = add;
+printf("a : %d \n", a);
+printf("arr[3] : %d \n", arr[3]);
+printf("add(3, 5) : %d \n", ptr(3,5));
+return 0;
+}
