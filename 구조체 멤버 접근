@@ -1,20 +1,26 @@
-#include <stdio.h>
+#include <stdio.h> 
+
+
 struct human
 {
-int age;
-int height;
-int weight;
-}; // ; 붙이는 것 주의
+    int age;     // 나이
+    int height;  // 키 (cm)
+    int weight;  // 몸무게 (kg)
+}; // 구조체 정의 끝에는 반드시 세미콜론(;)을 붙여야 함
 
-int main(void)
+int main(void) 
 {
-struct human gildong;
-gildong.age = 99;
-gildong.height = 185;
-gildong.weight = 80;
-printf("GilDong에 대한 정보 \n");
-printf("나이 : %d \n", gildong.age);
-printf("키 : %d \n", gildong.height);
-printf("몸무게 : %d \n", gildong.weight);
-return 0;
+    struct human gildong; // 구조체 변수 gildong 선언
+
+    gildong.age = 99;      // gildong의 나이 설정
+    gildong.height = 185;  // gildong의 키 설정
+    gildong.weight = 80;   // gildong의 몸무게 설정
+
+    printf("GilDong에 대한 정보 \n");        // 안내 메시지 출력
+    printf("나이 : %d \n", gildong.age);     // gildong의 나이 출력
+    printf("키 : %d \n", gildong.height);    // gildong의 키 출력
+    printf("몸무게 : %d \n", gildong.weight); // gildong의 몸무게 출력
+
+    return 0; // 프로그램 정상 종료
 }
+
