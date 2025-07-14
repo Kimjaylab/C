@@ -1,21 +1,28 @@
-#include <stdio.h>
-int main(void)
+#include <stdio.h> 
+
+int main(void) 
 {
-FILE *fp;
-int number;
-double grade;
-char name[100];
-fp = fopen(“sample.txt”, “r”);
-if(fp == NULL) {
-printf(“파일 열기 실패\n”);
-return 0;
+    FILE *fp; // 파일 포인터 선언
+    int number; // 정수를 저장할 변수 선언
+    double grade; // 실수를 저장할 변수 선언
+    char name[100]; // 이름을 저장할 문자열 배열 선언 (최대 99자 + 널문자)
+
+    fp = fopen("sample.txt", "r"); // sample.txt 파일을 읽기 모드("r")로 열기
+    if(fp == NULL) { // 파일 열기에 실패한 경우
+        printf("파일 열기 실패\n"); // 오류 메시지 출력
+        return 0; // 프로그램 종료
+    }
+
+    fscanf(fp, "%s", name); // 파일에서 문자열(name) 한 줄 입력
+    fscanf(fp, "%d", &number); // 파일에서 정수 값을 입력한 후 number에 저장
+    fscanf(fp, "%lf", &grade); // 파일에서 실수 값을 입력한 후 grade에 저장
+
+    fprintf(stdout, "%s \n", name); // 표준 출력(stdout)으로 문자열 출력
+    fprintf(stdout, "%d \n", number); // 표준 출력(stdout)으로 정수 출력
+    fprintf(stdout, "%f \n", grade); // 표준 출력(stdout)으로 실수 출력
+
+    fclose(fp); // 파일 닫기
+
+    return 1; // 프로그램 정상 종료 (1 반환)
 }
-fscanf( fp, “%s”, name);
-fscanf( fp, “%d”, &number);
-fscanf( fp, “%lf”, &grade);
-fprintf( stdout, “%s \n”, name);
-fprintf( stdout, “%d \n”, number);
-fprintf( stdout, “%f \n”, grade);
-fclose(fp);
-return 1;
-}
+
