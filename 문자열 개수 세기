@@ -1,18 +1,25 @@
-#include <stdio.h>
-int str_length(char *str);
-int main(void)
+#include <stdio.h> 
+
+int str_length(char *str); // 문자열의 길이를 계산하는 함수 선언
+
+int main(void) 
 {
-char str[ ]={"What is your name?"};
-printf("이 문자열의 길이 : %d \n", str_length(str));
-return 0;
+    char str[] = {"What is your name?"}; // 문자열 상수를 문자 배열로 초기화
+
+    printf("이 문자열의 길이 : %d \n", str_length(str)); // 문자열의 길이를 계산한 후 출력
+
+    return 0; // 프로그램 정상 종료
 }
 
-int str_length(char *str)
+int str_length(char *str) // 문자열 길이를 직접 계산하는 함수 정의
 {
-int i = 0;
-while(str[i])
-{
-i++;
+    int i = 0;             // 길이를 셀 변수 i를 0으로 초기화
+
+    while(str[i]) // 문자열의 끝인 널 문자('\0')가 나올 때까지 반복
+    {
+        i++;               // 문자가 하나씩 있을 때마다 i 증가
+    }
+
+    return i;              // 총 문자 수(길이) 반환
 }
-return i;
-}
+
