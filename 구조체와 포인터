@@ -1,21 +1,29 @@
 #include <stdio.h>
+
 struct test
 {
-int a,b;
+    int a, b; 
 };
 
-int main(void)
+int main(void) 
 {
-struct test st;
-struct test *ptr;
-ptr = &st;
-(*ptr).a = 1;
-(*ptr).b = 2;
-printf("st 의 a 멤버 : %d \n", st.a);
-printf("st 의 b 멤버 : %d \n", st.b);
-ptr->a = 3;
-ptr->b = 4;
-printf("st의 a 멤버 : %d \n", st.a);
-printf("st의 b 멤버 : %d \n", st.b);
-return 0;
+    struct test st;         // 구조체 변수 st 선언
+    struct test *ptr;       // 구조체 포인터 ptr 선언
+    ptr = &st;              // ptr에 st의 주소 저장 
+
+    (*ptr).a = 1;           // 역참조를 통해 a에 1 저장 → st.a = 1
+    (*ptr).b = 2;           // 역참조를 통해 b에 2 저장 → st.b = 2
+
+    // 현재 st의 멤버 값 출력
+    printf("st 의 a 멤버 : %d \n", st.a); // 1 출력
+    printf("st 의 b 멤버 : %d \n", st.b); // 2 출력
+
+    ptr->a = 3;             // 구조체 포인터에서 -> 연산자로 a에 3 저장 → st.a = 3
+    ptr->b = 4;             // 구조체 포인터에서 -> 연산자로 b에 4 저장 → st.b = 4
+
+    // 변경된 st의 멤버 값 출력
+    printf("st의 a 멤버 : %d \n", st.a); // 3 출력
+    printf("st의 b 멤버 : %d \n", st.b); // 4 출력
+
+    return 0; // 프로그램 정상 종료
 }
