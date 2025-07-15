@@ -1,19 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
-int main(void)
-{
-int size, i;
-int *arr, value = 100;
-printf("배열의 크기 : ");
-scanf("%d", &size);
+#include <stdio.h>   
+#include <stdlib.h>  
 
-//int arr[size]와 동일한 작업을 한 크기의 배열 생성
-arr = (int *)malloc(sizeof(int) * size);
-for (i = 0; i < size; i++)
-arr[i] = value++;
-for (i = 0; i < size; i++)
-printf("%d ", arr[i]);
-printf("\n");
-free(arr);
-return 0;
+int main(void) 
+{
+    int size, i;               
+    int *arr, value = 100;     
+
+    printf("배열의 크기 : ");  
+    scanf("%d", &size);        // 입력 값을 size 변수에 저장
+
+    arr = (int *)malloc(sizeof(int) * size); // int arr[size]; 와 같은 효과로, size만큼의 정수형 배열을 동적으로 생성
+
+    for (i = 0; i < size; i++)  // 배열 크기만큼 반복
+        arr[i] = value++;       // 각 배열 요소에 100부터 1씩 증가된 값 저장
+
+    for (i = 0; i < size; i++)  // 배열 값 출력
+        printf("%d ", arr[i]);
+
+    printf("\n"); // 줄바꿈
+
+    free(arr);    // 동적으로 할당한 메모리 해제
+
+    return 0;     // 프로그램 정상 종료
 }
