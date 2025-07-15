@@ -1,24 +1,32 @@
-#include <stdio.h>
-struct person {
-char name[20];
-char phone[20];
-};
-int main(void)
-{
-struct person man = {
-“HongGilDong",
-"354-00xx"};
-struct person *pMan;
-pMan = &man;
+#include <stdio.h> 
 
-//구조체 변수를 이용한 출력.
-printf("name : %s\n", man.name);
-printf("phone : %s\n", man.phone);
-//구조체 포인터를 이용한 출력1.
-printf("name : %s\n", (*pMan).name);
-printf("phone : %s\n", (*pMan).phone);
-//구조체 포인터를 이용한 출력2.
-printf("name : %s\n", pMan->name);
-printf("phone : %s\n", pMan->phone);
-return 0;
+
+struct person {
+    char name[20];  // 이름을 저장할 문자 배열
+    char phone[20]; // 전화번호를 저장할 문자 배열
+};
+
+int main(void) 
+{
+    struct person man = {  // 구조체 변수 man 선언 및 초기화
+        "HongGilDong",   // name 초기화
+        "354-00xx"       // phone 초기화
+    };
+
+    struct person *pMan;  // 구조체 포인터 선언
+    pMan = &man;          // pMan에 man의 주소 저장
+
+    // 구조체 변수를 이용한 출력
+    printf("name : %s\n", man.name);   // man의 name 멤버 출력
+    printf("phone : %s\n", man.phone); // man의 phone 멤버 출력
+
+    // 구조체 포인터를 이용한 출력 방법 1: 역참조 후 멤버 접근
+    printf("name : %s\n", (*pMan).name);   // pMan이 가리키는 구조체의 name 출력
+    printf("phone : %s\n", (*pMan).phone); // pMan이 가리키는 구조체의 phone 출력
+
+    // 구조체 포인터를 이용한 출력 방법 2: -> 연산자 사용
+    printf("name : %s\n", pMan->name);   // pMan이 가리키는 구조체의 name 출력
+    printf("phone : %s\n", pMan->phone); // pMan이 가리키는 구조체의 phone 출력
+
+    return 0; // 프로그램 정상 종료
 }
