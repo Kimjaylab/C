@@ -1,21 +1,29 @@
-#include <stdio.h>
-struct employee
+#include <stdio.h> 
+
+struct employee // 직원 정보를 담는 구조체 employee 정의
 {
-int age;
-int salary;
-};
-struct company
-{
-struct employee data;
-char name[10];
+    int age;      // 나이
+    int salary;   // 연봉
 };
 
-int main(void)
+// 회사 정보를 담는 구조체 company 정의
+// 이 구조체는 employee 구조체를 멤버로 포함함
+struct company
 {
-struct company kim;
-kim.data.age = 31;
-kim.data.salary = 3000000;
-printf("Kim's age : %d \n", kim.data.age);
-printf("Kim's salary : %d$/year \n", kim.data.salary);
-return 0;
+    struct employee data; // employee 구조체를 포함 (중첩 구조체)
+    char name[10];        // 회사 이름 (최대 9자 + 널문자)
+};
+
+int main(void) 
+{
+    struct company kim; // company 구조체 변수 kim 선언
+
+    kim.data.age = 31;         // kim의 직원 정보 중 나이 설정
+    kim.data.salary = 3000000; // kim의 직원 정보 중 연봉 설정
+
+    printf("Kim's age : %d \n", kim.data.age); // kim의 나이 출력
+    printf("Kim's salary : %d$/year \n", kim.data.salary); // kim의 연봉 출력
+
+    return 0; // 프로그램 정상 종료
 }
+
