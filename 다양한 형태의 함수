@@ -1,12 +1,17 @@
-#include <stdio.h>
-int slave(int money)
+#include <stdio.h> 
+
+int slave(int money) // 정수형 매개변수를 받아 10,000원을 추가한 후 반환하는 함수 정의
 {
-money += 10000;
-return money;
+    money += 10000; // 전달받은 money 값에 10000 더함
+    return money;   // 결과 반환
 }
-int main(void)
+
+int main(void) 
 {
-int my_money = 100000;
-printf("2020.12.12 재산 : $%d \n", slave(my_money));
-return 0;
+    int my_money = 100000; // 초기 자산 설정: 100,000원
+
+    printf("2020.12.12 재산 : $%d \n", slave(my_money)); // slave() 함수를 통해 자산에 10,000원을 더한 결과 출력
+
+    return 0; // 프로그램 정상 종료
 }
+
