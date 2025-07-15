@@ -1,22 +1,31 @@
-#include <stdio.h>
+#include <stdio.h> 
+
 struct AA
 {
-int age;
-int gender;
+    int age;     // 나이
+    int gender;  // 성별 (예: 1=남성, 0=여성 등)
 };
-struct AA function(int a, int g);
-int main(void)
+
+struct AA function(int a, int g); // 구조체를 반환하는 함수 선언 (매개변수로 age와 gender를 받아 구조체 반환)
+
+int main(void) // 프로그램 시작점
 {
-struct AA a;
-a = function(10, 1);
-printf("age : %d gender : %d \n", a.age, a.gender);
-return 0;
+    struct AA a; // 구조체 변수 a 선언
+
+    a = function(10, 1); // function 함수 호출 → 구조체 리턴 값을 a에 대입
+
+    printf("age : %d gender : %d \n", a.age, a.gender);
+
+    return 0; // 프로그램 정상 종료
 }
 
-struct AA function(int a, int g)
+struct AA function(int a, int g) // 구조체를 반환하는 함수 정의
 {
-struct AA A;
-A.age = a;
-A.gender = g;
-return A;
+    struct AA A;  // 반환할 구조체 변수 A 선언
+
+    A.age = a;     // 매개변수 a 값을 구조체 멤버 age에 대입
+    A.gender = g;  // 매개변수 g 값을 구조체 멤버 gender에 대입
+
+    return A;      // 구조체 A를 값으로 반환
 }
+
