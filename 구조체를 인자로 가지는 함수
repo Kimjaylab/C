@@ -1,20 +1,27 @@
-#include <stdio.h>
+#include <stdio.h> 
+
 struct TEST
 {
-int age;
-int gender;
+    int age;     // 나이
+    int gender;  // 성별 (예: 1 = 남성, 0 = 여성)
 };
-void set_human(struct TEST *a, int age, int gender);
-int main(void)
+
+void set_human(struct TEST *a, int age, int gender); // 구조체 포인터를 매개변수로 받아 값을 설정하는 함수 선언
+
+int main(void) 
 {
-struct TEST human;
-set_human(&human, 10, 1);
-printf("AGE : %d Gender : %d ", human.age, human.gender);
-return 0;
+    struct TEST human; // 구조체 변수 human 선언
+
+    set_human(&human, 10, 1); // 구조체의 주소와 나이, 성별 값을 전달하여 설정
+
+    printf("AGE : %d Gender : %d ", human.age, human.gender);
+
+    return 0; // 프로그램 정상 종료
 }
 
-void set_human(struct TEST *a, int age, int gender)
+void set_human(struct TEST *a, int age, int gender) // 구조체 포인터를 통해 멤버 값을 설정하는 함수 정의
 {
-a->age = age;
-a->gender = gender;
+    a->age = age;       // 포인터 a가 가리키는 구조체의 age 멤버에 값 대입
+    a->gender = gender; // 포인터 a가 가리키는 구조체의 gender 멤버에 값 대입
 }
+
