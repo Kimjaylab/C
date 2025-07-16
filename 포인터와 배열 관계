@@ -1,9 +1,10 @@
 #include <stdio.h>
+
 int main(void)
 {
-int arr[3] = {0, 1, 2};
-int *ptr;
-ptr = arr;
-printf("%d, %d, %d \n", ptr[0], ptr[1], ptr[2]);
-return 0;
+    int arr[3] = {0, 1, 2};         // 정수 배열 arr 선언 및 초기화
+    int *ptr;                       // int형 포인터 변수 ptr 선언
+    ptr = arr;                      // 배열 이름은 첫 번째 요소의 주소 → ptr에 arr의 시작 주소 대입
+    printf("%d, %d, %d \n", ptr[0], ptr[1], ptr[2]); // ptr을 배열처럼 사용하여 요소 출력
+    return 0;                       // 프로그램 정상 종료
 }
