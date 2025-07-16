@@ -1,15 +1,22 @@
-#include <stdio.h>
+#include <stdio.h> 
+
 int main(void)
 {
-FILE *fp;
-fp = fopen(“sample.txt", "w");
-if (fp == NULL)
-{
-printf("Write Error!!\n");
-return 0;
-}
-fputs("Hello World!! \n", fp);
-fputs("Hello World!! \n", stdout);
-fclose(fp);
-return 0;
+    FILE *fp; // 파일 포인터 변수 선언
+
+    fp = fopen("sample.txt", "w"); // sample.txt 파일을 쓰기 모드("w")로 열기
+
+    if (fp == NULL)
+    {
+        printf("Write Error!!\n");
+        return 0;
+    }
+
+    fputs("Hello World!! \n", fp);  // 파일에 문자열 쓰기
+
+    fputs("Hello World!! \n", stdout); // 화면(stdout)에 동일한 문자열 출력
+
+    fclose(fp); // 파일 닫기(출력 버퍼를 디스크에 정상적으로 저장)
+
+    return 0; // 프로그램 정상 종료
 }
