@@ -9,17 +9,13 @@ int main(void)
     arr[1] = &b;        // arr[1]은 변수 b의 주소를 가리킴
     arr[2] = &c;        // arr[2]은 변수 c의 주소를 가리킴
 
-    // 변수 a와 arr[0]이 가리키는 값 출력
-    printf("a : %d, *arr[0] : %d \n", a, *arr[0]);
+    printf("a : %d, *arr[0] : %d \n", a, *arr[0]); // 변수 a와 arr[0]이 가리키는 값 출력
 
-    // 변수 b와 arr[1]이 가리키는 값 출력
-    printf("b : %d, *arr[1] : %d \n", b, *arr[1]);
+    printf("b : %d, *arr[1] : %d \n", b, *arr[1]); // 변수 b와 arr[1]이 가리키는 값 출력
 
-    // 변수 c와 arr[2]이 가리키는 값 출력
-    printf("c : %d, *arr[2] : %d \n", c, *arr[2]);
+    printf("c : %d, *arr[2] : %d \n", c, *arr[2]);  // 변수 c와 arr[2]이 가리키는 값 출력
 
-    // 변수 a의 주소와 arr[0]에 저장된 주소 출력
-    printf("&a : %p, arr[0] : %p \n", (void *)&a, (void *)arr[0]);
+    printf("&a : %p, arr[0] : %p \n", (void *)&a, (void *)arr[0]); // 변수 a의 주소와 arr[0]에 저장된 주소 출력
 
     return 0; // 프로그램 정상 종료
 }
