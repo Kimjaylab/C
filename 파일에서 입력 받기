@@ -1,15 +1,24 @@
-#include <stdio.h>
+#include <stdio.h> 
+
 int main(void)
 {
-char buf[20]; //내용을 입력 받을 곳
-FILE *fp = fopen(“sample.txt", "r");
-if (fp == NULL)
-{
-printf("READ ERROR !! \n");
-return 0;
+    char buf[20]; // 파일에서 읽은 내용을 저장할 버퍼 (최대 19글자 + 널문자)
+
+    FILE *fp = fopen("sample.txt", "r"); // sample.txt 파일을 읽기 모드("r")로 열기
+
+    // 파일 열기 실패 시 에러 처리
+    if (fp == NULL)
+    {
+        printf("READ ERROR !! \n");
+        return 0; // 프로그램 종료
+    }
+
+    fgets(buf, 20, fp);  // 파일에서 최대 19글자(개행 포함)를 읽어서 buf에 저장 (널문자 자동 포함)
+
+    printf("입력 받은 내용 : %s \n", buf);
+
+    fclose(fp); // 파일 닫기(출력 버퍼를 디스크에 정상적으로 저장)
+
+    return 0; // 프로그램 정상 종료
 }
-fgets(buf, 20, fp);
-printf("입력 받은 내용 : %s \n", buf);
-fclose(fp);
-return 0;
-}
+
