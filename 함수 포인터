@@ -1,21 +1,29 @@
 #include <stdio.h>
-int max(int a, int b);
+
+int max(int a, int b);                           // 두 정수 중 큰 값을 반환하는 함수 선언
+
 int main(void)
 {
-int a, b;
-int (*pmax)(int, int);
-pmax = max;
-scanf("%d %d", &a, &b);
-printf("max(a,b) : %d \n", max(a,b));
-printf("pmax(a,b) : %d \n", pmax(a,b));
-return 0;
+    int a, b;                                    
+    int (*pmax)(int, int);                       
+
+    pmax = max;                                  // 함수 포인터 pmax에 max 함수의 주소 대입
+
+    scanf("%d %d", &a, &b);                     
+
+    printf("max(a,b) : %d \n", max(a,b));        // 직접 함수 호출
+    printf("pmax(a,b) : %d \n", pmax(a,b));      // 함수 포인터를 이용한 호출
+
+    return 0;                                    // 프로그램 정상 종료
 }
 
 int max(int a, int b)
 {
-if (a>b)
-return a;
-else
-return b;
-return 0;
+    if (a > b)                                   
+        return a;                                
+    else
+        return b;                                
+
+    return 0;                                    // (도달 불가능한 코드지만 안전을 위해 남김)
 }
+
