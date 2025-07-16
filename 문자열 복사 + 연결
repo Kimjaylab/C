@@ -1,12 +1,20 @@
-#include <string.h>
-#include <stdio.h>
+#include <string.h> 
+#include <stdio.h>  
+
 int main(void)
 {
-char string[80]; //문자열 크기 : 80
-strcpy(string, “Hello world from “);
-strcat(string, “strcpy “);
-strcat(string, “and “);
-strcat(string, “strcat!”);
-printf(“string = %s\n”, string);
-return 0;
+    char string[80]; 
+
+    strcpy(string, "Hello world from ");  // 문자열 "Hello world from "을 string 배열에 복사
+
+    strcat(string, "strcpy "); // string 뒤에 문자열 "strcpy "를 이어붙임
+ 
+    strcat(string, "and "); // string 뒤에 문자열 "and "를 이어붙임
+
+    strcat(string, "strcat!"); // string 뒤에 문자열 "strcat!"을 이어붙임
+
+    printf("string = %s\n", string);
+
+    return 0; // 프로그램 정상 종료
 }
+
