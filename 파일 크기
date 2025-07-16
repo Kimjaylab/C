@@ -1,11 +1,25 @@
-#include <stdio.h>
+#include <stdio.h> 
+
 int main(void)
 {
-int size = 0;
-FILE *fp = fopen(“sample.txt", "r");
-while(fgetc(fp) != EOF)
-size++;
-printf("이 파일의 크기는 : %d bytes \n", size);
-fclose(fp);
-return 0;
+    int size = 0; // 파일 크기를 저장할 변수
+
+    FILE *fp = fopen("sample.txt", "r");  // sample.txt 파일을 읽기 모드로 열기
+
+    // 파일 열기 실패 시 예외 처리
+    if (fp == NULL) {
+        printf("파일 열기 실패\n");
+        return 1;
+    }
+
+    // 파일의 모든 문자 수를 카운트
+    while (fgetc(fp) != EOF)
+        size++; // 한 글자씩 읽을 때마다 size 증가
+
+    printf("이 파일의 크기는 : %d bytes \n", size); // 최종 크기 출력
+
+    fclose(fp); // 파일 닫기(출력 버퍼를 디스크에 정상적으로 저장)
+
+    return 0; // 프로그램 정상 종료
 }
+
